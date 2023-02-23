@@ -3,6 +3,8 @@
 This a simple app made with PHP and Mysql, it can perform CRUD operation. It's
 the my first project using php :)
 
+![Demo]('./img.png')
+
 ## Run Locally
 
 Clone the project You shul create a database named `MARCHE` and table `hangar`
