@@ -1,7 +1,7 @@
 <?php
 if (!empty($_POST['hangar']) && empty($_POST['id'])) {
-    $hangar = $_POST['hangar'];
-    $occupe = $_POST['occupe'];
+    $hangar = $_POST['hangar']; //Nouveau Hangar
+    $occupe = $_POST['occupe']; // Non
     $sql = "INSERT INTO hangar(numero_hangar,occupe) VALUES(:hangar,:occupe)";
     $statement = $db->prepare($sql);
     if (
@@ -34,7 +34,6 @@ if (!empty($_POST['id'])) {
         $message = "Mis a jour effectuee";
         header('location:/Hangar');
     }
-    // $id = $pdo->lastInsertId();
 
 }
 ; ?>
@@ -50,9 +49,9 @@ require('header.php')
         <div class="card-body">
             <?php if (!empty($message)):
                 ; ?>
-                <div class="alert alert-success">
+                <span class="alert alert-success">
                     <?php echo $message; ?>
-                </div>
+            </span>
             <?php endif; ?>
             <form action="" method="post">
                 <input type="text" name="id" id="id" class="form-control w-50 mx-auto my-4" value="<?php if (isset($_GET['id'])) {
@@ -63,7 +62,7 @@ require('header.php')
 
                 <div class="form-group">
                     <label for="hangar">Numero hangar</label>
-                    <input type="text" name="hangar" id="hangar" class="form-control w-50 mx-auto my-4" value="<?php
+                    <input type="hidden" name="hangar" id="hangar" class="form-control w-50 mx-auto my-4" value="<?php
 
                     if (isset($_GET['id'])) {
                         $sql = "SELECT * FROM hangar WHERE id=:id";

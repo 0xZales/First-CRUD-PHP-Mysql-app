@@ -2,10 +2,10 @@
 define("host", "192.168.56.10");
 define("username", "homestead");
 define("password", "secret");
-function connect($host, $username, $password, $dbname)
+function connect($fhost, $fusername, $fpassword, $fdbname)
 {
 	// DATA SOURCE NAME DSN
-	$dsn = "mysql:dbname=" . $dbname . ";host=" . $host . ";charset=UTF8";
+	$dsn = "mysql:dbname=" . $fdbname . ";host=" . $fhost . ";charset=UTF8";
 	// CONNEXION A LA BASE DE DONNEE
 	try {
 		//code...
@@ -13,7 +13,7 @@ function connect($host, $username, $password, $dbname)
 		return new PDO($dsn, username, password, $options);
 		// $db->exec("SET NAMES utf8");
 	} catch (PDOException $error) {
-		die($error->getMessage());
+		// die($error->getMessage());
 	}
 }
 
